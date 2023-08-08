@@ -1,0 +1,27 @@
+{% extends 'pages/base.html' %}
+{% block content %}
+{% if posts %}
+    {% for post in posts %}
+        <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <h3 class="mb-0">{{post.title}}</h3>
+          <a href="{% url 'detail' post.pk %}">View</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+{% else %}
+    {% if user.is_authenticated %}
+    <h2>There are no any posts yet.
+    Do you want post something?</h2>
+    <h3><a href="{% url 'new' %}">Post</a></h3>
+    {% else %}
+    <h3>If you want to post something you must log in or signup</h3>
+    <h4><a href="{% url 'login' %}">Login</a></h4>
+    <h4><a href="{% url 'register' %}">SignUp</a></h4>
+    {% endif %}
+{% endif %}
+{% endblock %}

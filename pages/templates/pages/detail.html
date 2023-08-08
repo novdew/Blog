@@ -1,0 +1,16 @@
+{% extends 'pages/base.html' %}
+{% block content %}
+<div class="col-md-8 blog-main">
+          <div class="blog-post">
+              <img src="{{post.image.url}}" height="450" width="425">
+            <h2 class="blog-post-title">{{post.title}}</h2>
+            <p class="blog-post-meta">{{post.created_at}}</p>
+            <p>{{post.body}}</p>
+    {% if user.username == post.author %}
+        <a href="{% url 'edit' post.pk %}">Edit</a>
+        <a href="{% url 'delete' post.pk %}">Delete</a>
+    {% else %}
+    {% endif %}
+          </div>
+</div>
+{% endblock %}
