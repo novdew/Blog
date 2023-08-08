@@ -76,7 +76,6 @@ WSGI_APPLICATION = 'apiblog.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(conn_max_age=600)}
-        # default='postgres://renderpostgresql_0c0d_user:Tp8dzhbf9lmhXDitl6RY8Ss44ywPdT69@dpg-cj9420ukntus739qhqj0-a.oregon-postgres.render.com/renderpostgresql_0c0d',
 
 
 # Password validation
